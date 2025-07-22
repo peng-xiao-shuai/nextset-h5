@@ -1,14 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
-export async function generateStaticParams() {
-  const paths = ['dark', 'light'].map((theme) => ({
-    theme,
-  }));
-
-  return paths;
-}
-
 export function generateViewport(): Viewport {
   return {
     colorScheme: 'dark light',
@@ -27,12 +19,10 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout(props: CustomReactLayout) {
-  const params = await props.params;
-  const { theme } = params;
   const { children } = props;
 
   return (
-    <html lang="zh-CN" data-theme={theme}>
+    <html lang="zh-CN">
       <body className="antialiased">{children}</body>
     </html>
   );
