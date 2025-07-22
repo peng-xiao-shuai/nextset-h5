@@ -31,8 +31,8 @@ export default async function FeaturePreviewPage(props: CustomReactParams) {
       </div>
 
       <div className="mb-4 card">
-        <p className="text-xl font-semibold mb-4!">即将上线</p>
-        <ol className="list-disc pl-6 space-y-2 text-base">
+        <p className="text-lg font-bold mb-2!">即将上线</p>
+        <ol className="list-disc pl-4 space-y-2 text-base">
           <li>【记录】AI 智能分析</li>
           <li>【搭子、首页】长按预览</li>
           <li>【我的】对接华为运动健康</li>

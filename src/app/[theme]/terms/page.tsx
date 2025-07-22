@@ -4,7 +4,7 @@ import React from 'react';
 export default function TermsPage() {
   return (
     <section>
-      <h1>隐私政策</h1>
+      <h1>用户服务协议</h1>
       <h2>一、总则条款</h2>
       <h3>1.1 协议性质与适用范围</h3>
       <p>
@@ -217,10 +217,10 @@ export default function TermsPage() {
         <li>
           邮箱联系方式：
           <a
-            href="mailto:nextset01@gmail.com"
+            href={`mailto:${appInfo.email}`}
             className="font-bold hover:underline"
           >
-            nextset01@gmail.com
+            {appInfo.email}
           </a>
         </li>
         <li>回复时效说明：我们将尽力在合理时间内回复，但不保证具体回复时间</li>

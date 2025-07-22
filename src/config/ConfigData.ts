@@ -62,4 +62,5 @@ export const personalInfo = [
 
 export const appInfo = {
   appName: '律己',
+  email: 'nextset@qq.com',
 };
