@@ -1,6 +1,7 @@
 import { appInfo, personalInfo, sdk } from '@/config/ConfigData';
 import React from 'react';
 import { GenerateMetadata } from '../meta';
+import { ClientOnlyLink } from '@/components/ClientATag';
 
 export const generateMetadata = () => {
   return GenerateMetadata('/privacy');
@@ -17,12 +18,7 @@ export default function PrivacyPage() {
         <li>开发者：个人开发者</li>
         <li>
           联系邮箱：
-          <a
-            href="mailto:nextset01@gmail.com"
-            className="font-bold hover:underline"
-          >
-            nextset01@gmail.com
-          </a>
+          <ClientOnlyLink />
         </li>
       </ol>
 
@@ -152,8 +148,7 @@ export default function PrivacyPage() {
       <ul>
         <li>账号注销：通过【我的-设置-注销账号】注销账号并删除相关数据</li>
         <li>
-          邮件联系：发送邮件至{' '}
-          <a href={`mailto:${appInfo.email}`}>{appInfo.email}</a> 说明具体需求
+          邮件联系：发送邮件至 <ClientOnlyLink /> 说明具体需求
         </li>
       </ul>
       <p>
@@ -197,7 +192,7 @@ export default function PrivacyPage() {
       <ol className="list-disc pl-6 mb-2">
         <li>
           邮箱：
-          <a href={`mailto:${appInfo.email}`}>{appInfo.email}</a>
+          <ClientOnlyLink />
         </li>
         <li>我们承诺在15个工作日内回复您的咨询</li>
       </ol>

@@ -7,3 +7,9 @@ declare interface CustomReactParams {
 declare interface CustomReactLayout extends CustomReactParams {
   children: React.ReactNode;
 }
+
+declare interface Window {
+  webProxy: {
+    openMailbox: () => string;
+  };
+}

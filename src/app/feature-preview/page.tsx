@@ -8,37 +8,47 @@ export const generateMetadata = () => {
 };
 
 export default async function FeaturePreviewPage(props: {
-  params: Promise<{ theme: string }>;
   searchParams: Promise<{ color: string }>;
 }) {
-  const { theme } = await props.params;
   const color = (await props.searchParams)?.color ?? '#000';
 
   return (
-    <section className="page-container max-w-3xl mx-auto px-4 py-8 bg-[#f2f3f5]! dark:bg-black!">
+    <section className="page-container pb-0! bg-[#f2f3f5]! dark:bg-black!">
       <div
-        className={`flex flex-col gap-4 p-6 rounded-xl mb-4 card bg-gradient-to-b from-[${color}] to-white/90 dark:from-white/40 dark:to-[#1f2123]/90`}
-        // style={{
-        //   background: `linear-gradient(0deg, rgba(255,255,255,0.6) 20%, ${color} 100%)`,
-        // }}
+        className={`flex flex-col gap-4 p-6 rounded-xl mb-4 card bg-gradient-to-b to-white/90 dark:from-white/40! dark:to-[#1f2123]/90`}
+        /* 
+          由于 style 属性中 '--tw-gradient-from' 不是已知的 CSS 属性，TypeScript 会报错。
+          解决方法：将 style 的类型断言为 any 或使用 as React.CSSProperties，并用字符串索引绕过类型检查。
+        */
+        style={{
+          ['--tw-gradient-from' as string]: color,
+        }}
       >
         <div className="flex flex-col items-center">
           <span className="font-bold text-xl mb-1 dark:text-white">
             HarmonyOS Next {appInfo.appName}
           </span>
-          <span className="font-bold text-base mb-4 dark:text-white">
+          <span className="font-bold text-base dark:text-white">
             原生开发、更流畅、更快速
           </span>
           <Image
-            src={`/${theme}-startIcon.png`}
+            src="/light-startIcon.png"
             alt="start icon"
             width={120}
             height={120}
+            className="block dark:hidden"
+          />
+          <Image
+            src="/dark-startIcon.png"
+            alt="start icon"
+            width={120}
+            height={120}
+            className="hidden dark:block"
           />
         </div>
       </div>
 
-      <div className="mb-4 card">
+      <div className="card">
         <p className="text-lg font-bold mb-2!">即将上线</p>
         <ol className="list-disc pl-4 space-y-2 text-base">
           <li>【记录】AI 智能分析</li>

@@ -1,6 +1,7 @@
 import { appInfo } from '@/config/ConfigData';
 import React from 'react';
 import { GenerateMetadata } from '../meta';
+import { ClientOnlyLink } from '@/components/ClientATag';
 
 export const generateMetadata = () => {
   return GenerateMetadata('/terms');
@@ -221,12 +222,7 @@ export default function TermsPage() {
       <ul className="list-disc pl-6 mb-2">
         <li>
           邮箱联系方式：
-          <a
-            href={`mailto:${appInfo.email}`}
-            className="font-bold hover:underline"
-          >
-            {appInfo.email}
-          </a>
+          <ClientOnlyLink />
         </li>
         <li>回复时效说明：我们将尽力在合理时间内回复，但不保证具体回复时间</li>
       </ul>
