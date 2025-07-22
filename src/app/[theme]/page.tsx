@@ -1,5 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { GenerateMetadata } from './meta';
+
+export const generateMetadata = () => {
+  return GenerateMetadata('/');
+};
 
 export default function Home() {
   return (

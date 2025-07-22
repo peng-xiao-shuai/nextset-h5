@@ -1,9 +1,14 @@
 import { sdk } from '@/config/ConfigData';
 import React from 'react';
+import { GenerateMetadata } from '../meta';
+
+export const generateMetadata = () => {
+  return GenerateMetadata('/third-party');
+};
 
 export default function ThirdPartyPage() {
   return (
-    <section>
+    <section className="page-container">
       <h1>第三方 SDK 列表</h1>
       <p>
         为了提供业务处理能力、响应速度或其他方面的考虑，我们会使用第三方服务商提供的软件工具开发包（简称SDK）来为您提供服务。我们会对

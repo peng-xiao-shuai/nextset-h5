@@ -1,9 +1,14 @@
 import { appInfo, personalInfo, sdk } from '@/config/ConfigData';
 import React from 'react';
+import { GenerateMetadata } from '../meta';
+
+export const generateMetadata = () => {
+  return GenerateMetadata('/privacy');
+};
 
 export default function PrivacyPage() {
   return (
-    <section>
+    <section className="page-container">
       <h1>隐私政策</h1>
       <ol className="mb-4">
         <li>更新日期：2025 年 06 月 17 日</li>

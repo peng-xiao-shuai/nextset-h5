@@ -8,14 +8,25 @@
 }
 
 body {
-  background: #ffffff;
-  color: #171717;
+  /* background_primary */
+  background: #f1f3f5;
+  color: #191a1c;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
 
   @variant dark {
-    background: #0a0a0a;
-    color: #cccccc;
+    background: #000000;
+    color: #eaeaea;
+  }
+}
+
+.page-container {
+  /* background_secondary */
+  background: #ffffff;
+  color: #191a1c;
+  @variant dark {
+    background: #1f2123;
+    color: #eaeaea;
   }
 }
 
@@ -23,7 +34,7 @@ h1,
 h2,
 h3,
 a {
-  color: #171717;
+  color: #191a1c;
 
   @variant dark {
     color: #ededed;
@@ -54,7 +65,7 @@ a {
 }
 
 .card {
-  @apply bg-white rounded-3xl shadow-sm p-4;
+  @apply bg-white rounded-3xl p-4;
 
   @variant dark {
     @apply bg-[#1f2123];

@@ -1,9 +1,14 @@
 import { appInfo } from '@/config/ConfigData';
 import React from 'react';
+import { GenerateMetadata } from '../meta';
+
+export const generateMetadata = () => {
+  return GenerateMetadata('/terms');
+};
 
 export default function TermsPage() {
   return (
-    <section>
+    <section className="page-container">
       <h1>用户服务协议</h1>
       <h2>一、总则条款</h2>
       <h3>1.1 协议性质与适用范围</h3>

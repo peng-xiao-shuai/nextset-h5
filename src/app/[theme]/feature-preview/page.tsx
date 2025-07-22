@@ -1,24 +1,32 @@
 import { appInfo } from '@/config/ConfigData';
 import Image from 'next/image';
 import React from 'react';
+import { GenerateMetadata } from '../meta';
 
-export default async function FeaturePreviewPage(props: CustomReactParams) {
+export const generateMetadata = () => {
+  return GenerateMetadata('/feature-preview');
+};
+
+export default async function FeaturePreviewPage(props: {
+  params: Promise<{ theme: string }>;
+  searchParams: Promise<{ color: string }>;
+}) {
   const { theme } = await props.params;
-  const color = '#000'; //(await props.searchParams)?.color ?? '#000';
+  const color = (await props.searchParams)?.color ?? '#000';
 
   return (
-    <section className="max-w-3xl mx-auto px-4 py-8 bg-[#f2f3f5] dark:bg-black">
+    <section className="page-container max-w-3xl mx-auto px-4 py-8 bg-[#f2f3f5]! dark:bg-black!">
       <div
-        className="flex flex-col gap-4 p-6 rounded-xl mb-4 card"
-        style={{
-          background: `linear-gradient(0deg, rgba(255,255,255,0.6) 20%, ${color} 100%)`,
-        }}
+        className={`flex flex-col gap-4 p-6 rounded-xl mb-4 card bg-gradient-to-b from-[${color}] to-white/90 dark:from-white/40 dark:to-[#1f2123]/90`}
+        // style={{
+        //   background: `linear-gradient(0deg, rgba(255,255,255,0.6) 20%, ${color} 100%)`,
+        // }}
       >
         <div className="flex flex-col items-center">
-          <span className="font-bold text-xl mb-1">
+          <span className="font-bold text-xl mb-1 dark:text-white">
             HarmonyOS Next {appInfo.appName}
           </span>
-          <span className="font-bold text-base mb-4">
+          <span className="font-bold text-base mb-4 dark:text-white">
             原生开发、更流畅、更快速
           </span>
           <Image
