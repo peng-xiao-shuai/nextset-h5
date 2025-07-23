@@ -5,7 +5,7 @@ import { GenerateMetadata } from '../meta';
 export const generateMetadata = () => {
   return GenerateMetadata('/third-party');
 };
-
+export const dynamic = 'force-static';
 export default function ThirdPartyPage() {
   return (
     <section className="page-container">

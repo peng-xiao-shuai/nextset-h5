@@ -1,27 +1,29 @@
 import { appInfo } from '@/config/ConfigData';
 import Image from 'next/image';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { GenerateMetadata } from '../meta';
+import { HarmonyNextCard } from './ClientHarmonyNextCard';
 
 export const generateMetadata = () => {
   return GenerateMetadata('/feature-preview');
 };
 
-export default async function FeaturePreviewPage(props: {
-  searchParams: Promise<{ color: string }>;
-}) {
-  const color = (await props.searchParams)?.color ?? '#000';
-
+export default async function FeaturePreviewPage() {
   return (
     <section className="page-container pb-0! bg-[#f2f3f5]! dark:bg-black!">
+      <Suspense>
+        <HarmonyNextCard></HarmonyNextCard>
+      </Suspense>
+
       <div
         className={`flex flex-col gap-4 p-6 rounded-xl mb-4 card bg-gradient-to-b to-white/90 dark:from-white/40! dark:to-[#1f2123]/90`}
         /* 
-          由于 style 属性中 '--tw-gradient-from' 不是已知的 CSS 属性，TypeScript 会报错。
-          解决方法：将 style 的类型断言为 any 或使用 as React.CSSProperties，并用字符串索引绕过类型检查。
-        */
+    由于 style 属性中 '--tw-gradient-from' 不是已知的 CSS 属性，TypeScript 会报错。
+    解决方法：将 style 的类型断言为 any 或使用 as React.CSSProperties，并用字符串索引绕过类型检查。
+  */
+        id="harmony-next-card"
         style={{
-          ['--tw-gradient-from' as string]: color,
+          ['--tw-gradient-from' as string]: '#ffffff',
         }}
       >
         <div className="flex flex-col items-center">

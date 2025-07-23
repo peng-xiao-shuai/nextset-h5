@@ -6,7 +6,7 @@ import { ClientOnlyLink } from '@/components/ClientATag';
 export const generateMetadata = () => {
   return GenerateMetadata('/privacy');
 };
-
+export const dynamic = 'force-static';
 export default function PrivacyPage() {
   return (
     <section className="page-container">

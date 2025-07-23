@@ -6,7 +6,7 @@ import { ClientOnlyLink } from '@/components/ClientATag';
 export const generateMetadata = () => {
   return GenerateMetadata('/terms');
 };
-
+export const dynamic = 'force-static';
 export default function TermsPage() {
   return (
     <section className="page-container">
