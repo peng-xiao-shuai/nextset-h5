@@ -14,18 +14,14 @@ body {
   line-height: 1.5;
 
   @variant dark {
-    background: #000000;
+    background: #1f2123;
     color: #eaeaea;
   }
 }
 
 .page-container {
   /* background_secondary */
-  background: #ffffff;
-  color: #191a1c;
   @variant dark {
-    background: #1f2123;
-    color: #eaeaea;
   }
 }
 
