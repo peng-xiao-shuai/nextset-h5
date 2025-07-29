@@ -21,7 +21,7 @@ export default function Home() {
         </ol>
         <div className="flex flex-col gap-4 w-full max-w-xs">
           <Link
-            href="/privacy"
+            href="https://agreement-drcn.hispace.dbankcloud.cn/index.html?lang=zh&agreementId=1739950591389519872"
             className="block px-6 py-3 text-lg font-semibold bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-center"
           >
             隐私政策

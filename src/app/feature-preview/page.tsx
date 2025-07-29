@@ -10,7 +10,7 @@ export const generateMetadata = () => {
 
 export default async function FeaturePreviewPage() {
   return (
-    <section className="page-container pb-0! bg-[#f2f3f5]! dark:bg-black!">
+    <section className="page-container pb-0!">
       <Suspense>
         <HarmonyNextCard></HarmonyNextCard>
       </Suspense>
