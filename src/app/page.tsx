@@ -1,91 +1,141 @@
+'use client';
+import { appInfo } from '@/config/ConfigData';
 import Image from 'next/image';
 import Link from 'next/link';
-import { GenerateMetadata } from './meta';
-
-export const generateMetadata = () => {
-  return GenerateMetadata('/');
-};
+import React, { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(false);
+  const footerLinks = [
+    { key: 'privacy', text: '隐私政策' },
+    { key: 'terms', text: '用户协议' },
+    { key: 'contact', text: '联系我们' },
+  ] as const;
+  useEffect(() => {
+    // 页面加载动画
+    setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+  }, []);
+
+  const handleDownload = (platform: string) => {
+    const messages = {
+      harmony: '正在跳转到HarmonyOS应用市场...',
+    };
+
+    // 实际使用时可以替换为真实的下载链接
+    // window.location.href = 'harmony_download_url';
+  };
+
+  const showAgreement = (type: (typeof footerLinks)[number]['key']) => {
+    switch (type) {
+      case 'privacy':
+        window.location.href =
+          'https://agreement-drcn.hispace.dbankcloud.cn/index.html?lang=zh&agreementId=1739950591389519872';
+        break;
+      case 'terms':
+        window.location.href = '/terms';
+        break;
+      case 'contact':
+        const mailtoLink = `mailto:${encodeURIComponent(appInfo.email)}`;
+        window.location.href = mailtoLink;
+        break;
+    }
+  };
+
+  const appFeatures = [
+    '简洁美观的用户界面',
+    '快速响应的操作体验',
+    '安全可靠的数据保护',
+    '定期更新优化功能',
+  ];
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <h1 className="text-4xl font-extrabold mb-4">律己 APP</h1>
-        <h2 className="text-xl font-semibold mb-6 text-gray-700">
-          欢迎使用律己，专注自律与健康生活
-        </h2>
-        <ol className="font-mono list-inside list-decimal text-base text-gray-600 text-center sm:text-left mb-6">
-          <li className="mb-2 tracking-[-.01em]">
-            你可以在下方快速访问相关协议页面：
-          </li>
-        </ol>
-        <div className="flex flex-col gap-4 w-full max-w-xs">
-          <Link
-            href="https://agreement-drcn.hispace.dbankcloud.cn/index.html?lang=zh&agreementId=1739950591389519872"
-            className="block px-6 py-3 text-lg font-semibold bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-center"
-          >
-            隐私政策
-          </Link>
-          <Link
-            href="/terms"
-            className="block px-6 py-3 text-lg font-semibold bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-center"
-          >
-            用户服务协议
-          </Link>
-          <Link
-            href="/third-party"
-            className="block px-6 py-3 text-lg font-semibold bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-center"
-          >
-            第三方 SDK 列表
-          </Link>
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      {/* 主内容区域 */}
+      <div className="flex-1 p-5 flex flex-col items-center justify-center">
+        <div
+          className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-2xl shadow-gray-500/10 dark:shadow-gray-900/20 rounded-3xl p-10 max-w-md w-full text-center `}
+        >
+          {/* APP图标 */}
+          <div className="w-24 h-24 rounded-2xl mx-auto mb-5 flex items-center justify-center text-4xl shadow-2xl">
+            <Image
+              src={appInfo.appLogo}
+              width={96}
+              height={96}
+              alt={appInfo.appName + ' Logo'}
+              className="rounded-2xl overflow-hidden"
+            ></Image>
+          </div>
+
+          {/* APP名称和版本 */}
+          <h1 className="text-3xl font-bold mb-2">{appInfo.appName}</h1>
+          <div className="text-gray-500 dark:text-gray-400 text-sm mb-5">
+            版本 {appInfo.version}
+          </div>
+
+          {/* APP描述 */}
+          <div className="mb-16">
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-base">
+              一款功能强大的移动应用，为您提供便捷的生活服务体验。简洁的界面设计，流畅的操作体验，让您的生活更加精彩。
+            </p>
+          </div>
+
+          {/* 主要功能 */}
+          {/* <div className="text-left mb-8">
+            <h3 className="text-gray-900 dark:text-white text-lg mb-4 text-center">
+              主要功能
+            </h3>
+            {appFeatures.map((feature, index) => (
+              <div
+                key={index}
+                className="flex items-center mb-2 text-sm text-gray-600 dark:text-gray-300"
+              >
+                <div
+                  className="w-4 h-4 rounded-full mr-3 flex-shrink-0"
+                  style={{ background: '#000fff' }}
+                ></div>
+                <span>{feature}</span>
+              </div>
+            ))}
+          </div> */}
+
+          {/* 下载按钮 */}
+          <div className="mb-5">
+            <button
+              onClick={() => handleDownload('harmony')}
+              className="w-full py-2 px-6 rounded-xl text-base text-shadow-md font-bold text-[#fef0f0] select-none border-none cursor-pointer transition-all duration-300 hover:-translate-y-1 active:scale-95"
+              style={{
+                background: 'linear-gradient(45deg, #fc2c4e, #fc5668)',
+              }}
+            >
+              HarmonyOS下载
+            </button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+
+      {/* 底部协议 */}
+      <footer className="bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm p-5 text-center border-t border-gray-200 dark:border-gray-700">
+        <div className="flex justify-center gap-5 mb-3 flex-wrap">
+          {footerLinks.map((link) => (
+            <Link
+              key={link.key}
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                showAgreement(link.key);
+              }}
+              className="no-underline text-sm transition-all duration-200 hover:scale-105"
+            >
+              {link.text}
+            </Link>
+          ))}
+        </div>
+        <p className="text-gray-500 dark:text-gray-400 text-xs">
+          &copy; 2025 彭帅 All rights reserved.{' '}
+          <Link href="https://beian.miit.gov.cn/">湘ICP备2025130736号</Link>
+        </p>
       </footer>
     </div>
   );

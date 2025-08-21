@@ -62,5 +62,7 @@ export const personalInfo = [
 
 export const appInfo = {
   appName: '律己',
+  version: '1.0.0',
+  appLogo: '/logo.png',
   email: 'nextset@qq.com',
 };

@@ -8,13 +8,14 @@
 
 body {
   /* background_primary */
-  background: #f2f3f5;
+  /* background: #f2f3f5; */
   color: #191a1c;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
 
   @variant dark {
-    background: #212224;
+    /* background: #212224; */
+    background: #000000;
     color: #eaeaea;
   }
 }
@@ -37,7 +38,7 @@ a {
 }
 
 h1 {
-  @apply text-2xl font-bold mb-4;
+  @apply text-xl font-bold mb-4;
 }
 h2 {
   @apply text-xl font-semibold mt-4 mb-1;
