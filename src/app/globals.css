@@ -20,6 +20,14 @@ body {
   }
 }
 
+.feature-preview {
+  background: #f2f3f5;
+
+  @variant dark {
+    background: #000000;
+  }
+}
+
 .page-container {
   /* background_secondary */
   @variant dark {
