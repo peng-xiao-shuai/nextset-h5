@@ -8,15 +8,15 @@ export const sdk = [
     company: '友盟同欣（北京）科技有限公司',
     policy: 'https://www.umeng.com/policy',
   },
-  {
-    name: '华为推送SDK（HarmonyOS(java)版）',
-    purpose: '用于消息推送',
-    scene: '通知：当用户收到好友通知时',
-    info: '应用信息（应用基本信息）、设备信息（设备型号、操作系统、系统设置），网络信息（网络信息、运营商信息、SSID、IP地址）',
-    way: 'SDK本机采集，不涉及数据共享',
-    company: '华为软件技术有限公司',
-    policy: 'https://developer.huawei.com/consumer/cn/doc/30101',
-  },
+  // {
+  //   name: '华为推送SDK（HarmonyOS(java)版）',
+  //   purpose: '用于消息推送',
+  //   scene: '通知：当用户收到好友通知时',
+  //   info: '应用信息（应用基本信息）、设备信息（设备型号、操作系统、系统设置），网络信息（网络信息、运营商信息、SSID、IP地址）',
+  //   way: 'SDK本机采集，不涉及数据共享',
+  //   company: '华为软件技术有限公司',
+  //   policy: 'https://developer.huawei.com/consumer/cn/doc/30101',
+  // },
 ];
 
 /**

@@ -10,7 +10,7 @@ export const dynamic = 'force-static';
 export default function PrivacyPage() {
   return (
     <section className="page-container">
-      <h1>隐私政策 （废弃s）</h1>
+      <h1>隐私政策 （废弃）</h1>
       <ol className="mb-4">
         <li>更新日期：2025 年 06 月 17 日</li>
         <li>生效日期：2025 年 06 月 17 日</li>
