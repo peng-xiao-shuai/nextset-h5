@@ -56,7 +56,7 @@ export default function ThirdPartyPage() {
         </div>
       ))}
 
-      <div className='h-28 w-full'></div>
+      <div className='h-40 w-full'></div>
     </section>
   );
 }
