@@ -43,13 +43,6 @@ export default function Home() {
     }
   };
 
-  const appFeatures = [
-    '简洁美观的用户界面',
-    '快速响应的操作体验',
-    '安全可靠的数据保护',
-    '定期更新优化功能',
-  ];
-
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       {/* 主内容区域 */}
@@ -75,30 +68,27 @@ export default function Home() {
           </div>
 
           {/* APP描述 */}
-          <div className="mb-16">
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-base">
-              一款功能强大的移动应用，为您提供便捷的生活服务体验。简洁的界面设计，流畅的操作体验，让您的生活更加精彩。
+          <div className="mb-10">
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-base text-left">
+              {appInfo.appDesc}
             </p>
           </div>
 
           {/* 主要功能 */}
-          {/* <div className="text-left mb-8">
-            <h3 className="text-gray-900 dark:text-white text-lg mb-4 text-center">
-              主要功能
-            </h3>
-            {appFeatures.map((feature, index) => (
+          <div className="text-left mb-10">
+            {appInfo.appFeatures.map((feature, index) => (
               <div
                 key={index}
                 className="flex items-center mb-2 text-sm text-gray-600 dark:text-gray-300"
               >
                 <div
-                  className="w-4 h-4 rounded-full mr-3 flex-shrink-0"
-                  style={{ background: '#000fff' }}
+                  className="size-2 rounded-full mr-3 flex-shrink-0"
+                  style={{ background: '#ffffff' }}
                 ></div>
                 <span>{feature}</span>
               </div>
             ))}
-          </div> */}
+          </div>
 
           {/* 下载按钮 */}
           <div className="mb-5">
