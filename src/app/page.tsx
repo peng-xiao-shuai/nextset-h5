@@ -62,7 +62,7 @@ export default function Home() {
           </div>
 
           {/* APP名称和版本 */}
-          <h1 className="text-3xl font-bold mb-2">{appInfo.appName}</h1>
+          <h1 className="mb-2!">{appInfo.appName}</h1>
           <div className="text-gray-500 dark:text-gray-400 text-sm mb-5">
             版本 {appInfo.version}
           </div>
@@ -77,15 +77,17 @@ export default function Home() {
           {/* 主要功能 */}
           <div className="text-left mb-10">
             {appInfo.appFeatures.map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-center mb-2 text-sm text-gray-600 dark:text-gray-300"
-              >
+              <div key={index} className='flex items-center mb-2 '>
+                <div className="size-10 rounded-md mr-3 flex justify-center items-center bg-white/20">{feature.icon}</div>
+
                 <div
-                  className="size-2 rounded-full mr-3 flex-shrink-0"
-                  style={{ background: '#ffffff' }}
-                ></div>
-                <span>{feature}</span>
+                  key={index}
+                  className="flex-1 text-sm text-gray-600 dark:text-gray-300"
+                >
+                  <p className='text-sm'>
+                    <strong>{feature.title}：</strong> {feature.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
