@@ -56,6 +56,7 @@ export default async function FeaturePreviewPage() {
           {/* <li>【记录】AI 智能分析</li> */}
           {/* <li>【搭子、首页】长按预览</li> */}
           <li> 🤝 <strong>我的</strong> 对接华为运动健康</li>
+          <li> 🛠️ <strong>我的</strong> RM计算工具</li>
           <li> 📈 <strong>记录</strong> 月/年统计分析</li>
           <li> 📒 <strong>动作库</strong> 系统动作支持查看详情</li>
           <li> 📑 <strong>训练编辑</strong> 支持查看动作的历史数据</li>
