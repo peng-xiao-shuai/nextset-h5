@@ -52,7 +52,7 @@ export default async function FeaturePreviewPage() {
 
       <div className="card">
         <p className="text-lg font-bold mb-2!">即将上线</p>
-        <ol className="pl-4 space-y-2 text-base">
+        <ol className="space-y-2 text-base">
           {/* <li>【记录】AI 智能分析</li> */}
           {/* <li>【搭子、首页】长按预览</li> */}
           <li> 🤝 <strong>我的</strong> 对接华为运动健康</li>
