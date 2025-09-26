@@ -230,7 +230,9 @@ export default function TermsPage() {
       <p className="font-bold">
         本协议最终解释权归应用开发者所有。
         <br />
-        协议生效日期：2025年6月10日
+        开发者：彭帅
+        <br />
+        协议生效日期：2025年9月26日
         <br />
         协议版本：1.0
       </p>
