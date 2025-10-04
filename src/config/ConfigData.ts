@@ -67,6 +67,7 @@ export const appInfo = {
   version: '1.0.0',
   appLogo: '/logo.png',
   email: 'nextset@qq.com',
+  downloadUrl: 'https://url.cloud.huawei.com/xq7Yg59fGg',
   appFeatures: [
     {
       icon: '📒',

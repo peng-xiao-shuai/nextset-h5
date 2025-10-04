@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showQrModal, setShowQrModal] = useState(false);
   const footerLinks = [
     { key: 'privacy', text: '隐私政策' },
     { key: 'terms', text: '用户协议' },
@@ -19,12 +20,8 @@ export default function Home() {
   }, []);
 
   const handleDownload = (platform: string) => {
-    const messages = {
-      harmony: '正在跳转到HarmonyOS应用市场...',
-    };
-
     // 实际使用时可以替换为真实的下载链接
-    // window.location.href = 'harmony_download_url';
+    window.location.href = appInfo.downloadUrl;
   };
 
   const showAgreement = (type: (typeof footerLinks)[number]['key']) => {
@@ -77,14 +74,16 @@ export default function Home() {
           {/* 主要功能 */}
           <div className="text-left mb-10">
             {appInfo.appFeatures.map((feature, index) => (
-              <div key={index} className='flex items-center mb-2 '>
-                <div className="size-10 rounded-md mr-3 flex justify-center items-center bg-white/20">{feature.icon}</div>
+              <div key={index} className="flex items-center mb-2 ">
+                <div className="size-10 rounded-md mr-3 flex justify-center items-center dark:bg-white/20 bg-gray-300/20">
+                  {feature.icon}
+                </div>
 
                 <div
                   key={index}
                   className="flex-1 text-sm text-gray-600 dark:text-gray-300"
                 >
-                  <p className='text-sm'>
+                  <p className="text-sm">
                     <strong>{feature.title}：</strong> {feature.desc}
                   </p>
                 </div>
@@ -101,7 +100,16 @@ export default function Home() {
                 background: 'linear-gradient(45deg, #fc2c4e, #fc5668)',
               }}
             >
-              HarmonyOS下载
+              AppGallery 下载
+            </button>
+          </div>
+
+          <div className="mb-5">
+            <button
+              onClick={() => setShowQrModal(true)}
+              className="w-full py-2 px-6 rounded-xl text-base text-shadow-md font-bold dark:text-gray-200 text-gray-700 select-none border-2 dark:border-gray-200 border-gray-700 cursor-pointer transition-all duration-300 hover:-translate-y-1 active:scale-95"
+            >
+              二维码
             </button>
           </div>
         </div>
@@ -129,6 +137,43 @@ export default function Home() {
           <Link href="https://beian.miit.gov.cn/">湘ICP备2025130736号</Link>
         </p>
       </footer>
+
+      {/* 二维码弹窗 */}
+      {showQrModal && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowQrModal(false)}
+        >
+          <div
+            className="bg-white dark:bg-gray-800 rounded-2xl p-6 max-w-sm w-full shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="text-center">
+              <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 !mb-4">
+                扫码下载应用
+              </h3>
+              <div className="mb-4">
+                <Image
+                  src="/harmony-down-qrcode.png"
+                  width={200}
+                  height={200}
+                  alt="下载二维码"
+                  className="mx-auto rounded-lg"
+                />
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                使用手机扫描二维码即可下载应用
+              </p>
+              <button
+                onClick={() => setShowQrModal(false)}
+                className="w-full py-2 px-6 rounded-xl text-base font-bold text-white bg-gray-500 hover:bg-gray-600 transition-all duration-300"
+              >
+                关闭
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
