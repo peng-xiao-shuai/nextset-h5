@@ -10,7 +10,7 @@ export default function Home() {
   const footerLinks = [
     { key: 'privacy', text: '隐私政策' },
     { key: 'terms', text: '用户协议' },
-    { key: 'contact', text: '联系我们' },
+    // { key: 'contact', text: '联系我们' },
   ] as const;
   useEffect(() => {
     // 页面加载动画
@@ -33,10 +33,10 @@ export default function Home() {
       case 'terms':
         window.location.href = '/terms';
         break;
-      case 'contact':
-        const mailtoLink = `mailto:${encodeURIComponent(appInfo.email)}`;
-        window.location.href = mailtoLink;
-        break;
+      // case 'contact':
+      //   const mailtoLink = `mailto:${encodeURIComponent(appInfo.email)}`;
+      //   window.location.href = mailtoLink;
+      //   break;
     }
   };
 
