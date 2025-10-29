@@ -134,7 +134,7 @@ export default function Home() {
         </div>
         <p className="text-gray-500 dark:text-gray-400 text-xs">
           &copy; 2025 彭帅 All rights reserved.{' '}
-          <Link href="https://beian.miit.gov.cn/">湘ICP备2025130736号</Link>
+          <Link href="https://beian.miit.gov.cn/">粤ICP备2025487708号</Link>
         </p>
       </footer>
 
