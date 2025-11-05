@@ -95,4 +95,36 @@ export const appInfo = {
       desc: '无广告、无付费门槛，打开即用，专注于记录与成长。',
     },
   ],
+
+  feature: [{
+    icon: '🤝',
+    title: '我的',
+    desc: '对接华为运动健康',
+    status: '开发中',
+  }, {
+    icon: '🛠️',
+    title: '我的',
+    desc: 'RM计算工具',
+    status: '即将上线',
+  }, {
+    icon: '🌐',
+    title: '训练',
+    desc: '离线训练',
+    status: '即将上线',
+  }, {
+    icon: '📈',
+    title: '记录',
+    desc: '月/年统计分析',
+    status: '',
+  }, {
+    icon: '📒',
+    title: '动作库',
+    desc: '系统动作支持查看详情',
+    status: '',
+  }, {
+    icon: '📑',
+    title: '训练编辑',
+    desc: '支持查看动作的历史数据',
+    status: '',
+  }]
 };
