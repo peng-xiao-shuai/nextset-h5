@@ -12,4 +12,5 @@ declare interface Window {
   webProxy: {
     openMailbox: () => string;
   };
+  setProgress?: (data: { duration: number, actionNumber: number, groupNumber: number }) => void;
 }

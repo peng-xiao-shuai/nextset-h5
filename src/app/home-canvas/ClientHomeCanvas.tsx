@@ -142,19 +142,6 @@ export default class ClientHomeCanvas extends React.Component {
    */
   constructor(props: Record<string, string>) {
     super(props);
-
-    let urlParams: URLSearchParams;
-    if (typeof window !== "undefined") {
-      // 获取URL查询参数
-      urlParams = new URLSearchParams(window.location.search);
-    } else {
-      urlParams = new URLSearchParams('');
-    }
-
-    // 从URL参数中读取三个进度值
-    this.duration = Number(urlParams.get('duration')) || 0;
-    this.actionNumber = Number(urlParams.get('actionNumber')) || 0;
-    this.groupNumber = Number(urlParams.get('groupNumber')) || 0;
   }
 
   /**
@@ -451,6 +438,14 @@ export default class ClientHomeCanvas extends React.Component {
       e.preventDefault();
     }, { passive: false });
 
+
+    // 在挂载时，将回调函数暴露到全局作用域
+    window.setProgress = (data: { duration: number, actionNumber: number, groupNumber: number }) => {
+      this.duration = data.duration;
+      this.actionNumber = data.actionNumber;
+      this.groupNumber = data.groupNumber;
+    };
+
     // 初始化canvas
     this.initCanvas();
   }
@@ -459,6 +454,8 @@ export default class ClientHomeCanvas extends React.Component {
    * React 生命周期 - 组件卸载时调用
    */
   componentWillUnmount() {
+    // 清理全局函数
+    delete window.setProgress;
     // 清理动画资源
     this.stopAnimation();
   }
