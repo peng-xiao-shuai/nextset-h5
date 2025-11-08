@@ -14,8 +14,8 @@ export function generateViewport(): Viewport {
 export const fetchCache = 'default-cache';
 
 export const metadata: Metadata = {
-  title: 'HarmonyOS Next 律己',
-  description: 'HarmonyOS Next 律己',
+  title: 'HarmonyOS 律己',
+  description: 'HarmonyOS 律己',
 };
 
 export default async function RootLayout(props: CustomReactLayout) {

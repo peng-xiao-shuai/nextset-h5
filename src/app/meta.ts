@@ -27,8 +27,8 @@ const pathMetaData = {
     description: `${appInfo.appName} 使用的第三方服务和 SDK 清单`,
   },
   '/home-canvas': {
-    title: '第三方 SDK 列表',
-    description: `${appInfo.appName} 使用的第三方服务和 SDK 清单`,
+    title: '环形水波倒影',
+    description: '环形水波倒影',
   },
   '/not-found': {
     title: '404',
