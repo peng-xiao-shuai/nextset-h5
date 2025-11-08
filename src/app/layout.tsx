@@ -6,7 +6,7 @@ export function generateViewport(): Viewport {
     colorScheme: 'dark light',
     width: 'device-width',
     initialScale: 1,
-    maximumScale: 2,
+    maximumScale: 1,
     userScalable: true,
   };
 }
