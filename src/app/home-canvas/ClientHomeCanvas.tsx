@@ -51,14 +51,14 @@ const CanvasConfig = {
    * 白天：振幅为20像素，波浪较平缓
    * 夜晚：振幅为30像素，波浪更剧烈
    */
-  waveAmplitude: currentHour < 18 && currentHour > 5 ? 30 : 40,
+  waveAmplitude: currentHour < 18 && currentHour > 5 ? 30 : 60,
 
   /**
    * 波浪频率 - 控制波浪的密度（单位长度内波浪的数量）
    * 白天：频率0.2，波浪较稀疏
    * 夜晚：频率0.4，波浪更密集
    */
-  waveFrequency: currentHour < 18 && currentHour > 5 ? 0.3 : 0.4,
+  waveFrequency: currentHour < 18 && currentHour > 5 ? 0.3 : 0.5,
 
   /**
    * 模糊量（像素）- 倒影的高斯模糊效果强度
