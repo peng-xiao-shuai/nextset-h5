@@ -100,7 +100,7 @@ export const appInfo = {
     icon: '🤝',
     title: '我的',
     desc: '对接华为运动健康',
-    status: '开发中',
+    status: '即将上线',
   }, {
     icon: '🛠️',
     title: '我的',
