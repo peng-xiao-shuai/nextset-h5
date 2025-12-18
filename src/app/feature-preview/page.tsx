@@ -58,7 +58,9 @@ export default async function FeaturePreviewPage() {
           {appInfo.feature.map((feature) => (
             <li key={feature.title}>
               {feature.icon} <strong>{feature.title}</strong>
-              <span className={`${feature.status === '开发中' ? 'text-yellow-600' : feature.status === '即将上线' ? 'text-green-600' : ''}`}> {feature.desc}</span>
+              <span> {feature.desc}</span>
+
+              <span className={`text-xs rounded-md p-1 ml-2 ${feature.status === '开发中' ? 'text-yellow-100 bg-yellow-600' : feature.status === '即将上线' ? 'text-green-100 bg-green-600' : 'text-gray-600 bg-gray-100 border border-gray-600'}`}> {feature.status}</span>
             </li>
           ))}
         </ol>

@@ -112,19 +112,24 @@ export const appInfo = {
     desc: '离线训练',
     status: '即将上线',
   }, {
+    icon: '📱',
+    title: '全局',
+    desc: '优化UI效果',
+    status: '开发中',
+  }, {
     icon: '📈',
     title: '记录',
     desc: '月/年统计分析',
-    status: '',
+    status: '延期',
   }, {
     icon: '📒',
     title: '动作库',
     desc: '系统动作支持查看详情',
-    status: '',
+    status: '延期',
   }, {
     icon: '📑',
-    title: '训练编辑',
+    title: '动作库',
     desc: '支持查看动作的历史数据',
-    status: '',
+    status: '即将上线',
   }]
 };
