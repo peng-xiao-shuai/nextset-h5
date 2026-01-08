@@ -134,6 +134,7 @@ const detailColumns = (details: typeof updatedFunctions[number]['details']) => {
           ))
         }
       </div>
+
       <div>
         <h4 className="font-semibold text-sm mb-1 transition-colors">
           {detail.title}
