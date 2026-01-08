@@ -64,7 +64,7 @@ export const appInfo = {
   appName: '律己',
   appDesc:
     '完全免费的力量训练记录与数据分析 App，专为健身爱好者打造。无论你是初学者还是资深玩家，都能用它轻松记录训练。',
-  version: '1.0.0',
+  version: '2.0.0',
   appLogo: '/logo.png',
   email: 'nextset@qq.com',
   downloadUrl: 'https://url.cloud.huawei.com/xq7Yg59fGg',
@@ -96,40 +96,30 @@ export const appInfo = {
     },
   ],
 
-  feature: [{
-    icon: '🤝',
-    title: '我的',
-    desc: '对接华为运动健康',
-    status: '即将上线',
-  }, {
-    icon: '🛠️',
-    title: '我的',
-    desc: 'RM计算工具',
-    status: '即将上线',
-  }, {
-    icon: '🌐',
-    title: '训练',
-    desc: '离线训练',
-    status: '即将上线',
-  }, {
-    icon: '📱',
-    title: '全局',
-    desc: '优化UI效果',
-    status: '开发中',
-  }, {
-    icon: '📈',
-    title: '记录',
-    desc: '月/年统计分析',
-    status: '延期',
-  }, {
-    icon: '📒',
-    title: '动作库',
-    desc: '系统动作支持查看详情',
-    status: '延期',
-  }, {
-    icon: '📑',
-    title: '动作库',
-    desc: '支持查看动作的历史数据',
-    status: '即将上线',
-  }]
+  feature: [
+    {
+      icon: '📱',
+      title: '系统',
+      desc: '碰一碰功能',
+      status: '',
+    },
+    {
+      icon: '📱',
+      title: '系统',
+      desc: '实况窗功能',
+      status: '',
+    },
+    {
+      icon: '📈',
+      title: '记录',
+      desc: '月/年统计分析',
+      status: '延后',
+    },
+    {
+      icon: '📒',
+      title: '动作库',
+      desc: '系统动作支持查看详情',
+      status: '延后',
+    },
+  ],
 };

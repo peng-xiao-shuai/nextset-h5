@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { Suspense } from 'react';
 import { GenerateMetadata } from '../meta';
 import { HarmonyNextCard } from './ClientHarmonyNextCard';
+import { VersionFeatures } from './NewFeature';
 
 export const generateMetadata = () => {
   return GenerateMetadata('/feature-preview');
@@ -28,7 +29,7 @@ export default async function FeaturePreviewPage() {
       >
         <div className="flex flex-col items-center">
           <span className="font-bold text-xl mb-1 dark:text-white">
-            HarmonyOS Next {appInfo.appName}
+            HarmonyOS {appInfo.appName}
           </span>
           <span className="font-bold text-base dark:text-white">
             原生开发、更流畅、更快速
@@ -50,30 +51,31 @@ export default async function FeaturePreviewPage() {
         </div>
       </div>
 
+      <div className="card mb-4">
+        <p className="text-lg font-bold mb-2!">
+          <span>版本新功能</span>&nbsp;
+          <span className='bg-amber-600 text-amber-100 text-xs px-1.5 py-0.5 rounded-2xl'>V2.0.0</span>
+        </p>
+        <VersionFeatures />
+      </div>
+
       <div className="card">
         <p className="text-lg font-bold mb-2!">即将上线</p>
-        <ol className="space-y-2 text-base">
+        <ol className="space-y-3 text-base">
           {/* <li>【记录】AI 智能分析</li> */}
           {/* <li>【搭子、首页】长按预览</li> */}
           {appInfo.feature.map((feature) => (
-            <li key={feature.title}>
+            <li key={feature.desc} className='flex p-2 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden'>
               {feature.icon} <strong>{feature.title}</strong>
               <span> {feature.desc}</span>
 
-              <span className={`text-xs rounded-md p-1 ml-2 ${feature.status === '开发中' ? 'text-yellow-100 bg-yellow-600' : feature.status === '即将上线' ? 'text-green-100 bg-green-600' : 'text-gray-600 bg-gray-100 border border-gray-600'}`}> {feature.status}</span>
+              <div className='flex justify-end flex-1'>
+                <span className={`text-xs rounded-md p-1 ml-2 ${feature.status === '开发中' ? 'text-yellow-100 bg-yellow-600' : feature.status === '即将上线' ? 'text-green-100 bg-green-600' : 'text-gray-600 bg-gray-100 border border-gray-600'}`}> {feature.status}</span>
+              </div>
             </li>
           ))}
         </ol>
       </div>
-      {/* <div className="card">
-        <p className="text-xl font-semibold mb-4!">已完成功能</p>
-        <ol className="list-disc pl-6 space-y-2 text-base">
-          <li>运动数据记录与分析</li>
-          <li>社交分享功能</li>
-          <li>华为账号登录服务</li>
-          <li>数据云端同步</li>
-        </ol>
-      </div> */}
     </section>
   );
 }
