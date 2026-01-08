@@ -65,13 +65,17 @@ export default async function FeaturePreviewPage() {
           {/* <li>【记录】AI 智能分析</li> */}
           {/* <li>【搭子、首页】长按预览</li> */}
           {appInfo.feature.map((feature) => (
-            <li key={feature.desc} className='flex p-2 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden'>
+            <li key={feature.desc} className='flex p-2 bg-black/5 border-black/10 dark:bg-white/5 backdrop-blur-lg rounded-xl border dark:border-white/10 overflow-hidden'>
               {feature.icon} <strong>{feature.title}</strong>
-              <span> {feature.desc}</span>
+              <span>&nbsp;{feature.desc}</span>
 
-              <div className='flex justify-end flex-1'>
-                <span className={`text-xs rounded-md p-1 ml-2 ${feature.status === '开发中' ? 'text-yellow-100 bg-yellow-600' : feature.status === '即将上线' ? 'text-green-100 bg-green-600' : 'text-gray-600 bg-gray-100 border border-gray-600'}`}> {feature.status}</span>
-              </div>
+              {
+                feature.status && (
+                  <div className='flex justify-end flex-1'>
+                    <span className={`text-xs rounded-md p-1 ml-2 ${feature.status === '开发中' ? 'text-yellow-100 bg-yellow-600' : feature.status === '即将上线' ? 'text-green-100 bg-green-600' : 'text-gray-600 bg-gray-100 border border-gray-600'}`}> {feature.status}</span>
+                  </div>
+                )
+              }
             </li>
           ))}
         </ol>

@@ -117,7 +117,7 @@ const detailColumns = (details: typeof updatedFunctions[number]['details']) => {
   return details.map((detail, detailIndex) => (
     <div
       key={detailIndex}
-      className="p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer group animate-scale-in"
+      className="p-3 bg-black/5 hover:bg-black/10  dark:bg-white/5 rounded-lg dark:hover:bg-white/10 transition-all duration-300 cursor-pointer group animate-scale-in"
       style={{ animationDelay: `${detailIndex * 0.1}s`, opacity: 0 }}
     >
       <div className="overflow-hidden rounded mb-3">
@@ -138,7 +138,7 @@ const detailColumns = (details: typeof updatedFunctions[number]['details']) => {
         <h4 className="font-semibold text-sm mb-1 transition-colors">
           {detail.title}
         </h4>
-        <p className="text-sm opacity-60" dangerouslySetInnerHTML={{
+        <p className="text-sm opacity-80" dangerouslySetInnerHTML={{
           __html: detail.description
         }}></p>
       </div>
@@ -150,7 +150,7 @@ export const VersionFeatures = () => {
   const [expandedFeature, setExpandedFeature] = useState<number | null>(null);
 
   return (
-    <div className="text-white">
+    <div className="text-black dark:text-white">
       <style>{` 
         @keyframes fadeIn {
           from { opacity: 0; }
@@ -212,7 +212,7 @@ export const VersionFeatures = () => {
           {updatedFunctions.map((feature, index) => (
             <div
               key={index}
-              className="bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden"
+              className="bg-black/5 border-black/10 dark:bg-white/5 backdrop-blur-lg rounded-xl border dark:border-white/10 overflow-hidden"
             >
               {/* 功能标题行 */}
               <div
@@ -222,7 +222,7 @@ export const VersionFeatures = () => {
                 <div className="flex-1 flex flex-col gap-2">
                   <div className="flex items-center gap-2">
                     <div className={`p-1.5 rounded-lg bg-gradient-to-r ${feature.color} transition-transform duration-300 hover:scale-110 hover:rotate-3`}>
-                      <div className="w-6 h-6 flex items-center justify-center">
+                      <div className="w-6 h-6 flex items-center justify-center text-white/80">
                         {feature.icon}
                       </div>
                     </div>
