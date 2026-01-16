@@ -8,7 +8,7 @@ export const generateMetadata = () => {
 export const dynamic = 'force-static';
 export default function ThirdPartyPage() {
   return (
-    <section className="page-container">
+    <section className="page-container documents">
       <h1>第三方 SDK 列表</h1>
       <p>
         为了提供业务处理能力、响应速度或其他方面的考虑，我们会使用第三方服务商提供的软件工具开发包（简称SDK）来为您提供服务。我们会对

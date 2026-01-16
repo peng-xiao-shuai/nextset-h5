@@ -9,7 +9,7 @@ export const generateMetadata = () => {
 export const dynamic = 'force-static';
 export default function TermsPage() {
   return (
-    <section className="page-container">
+    <section className="page-container documents md:py-6 md:max-w-3xl md:mx-auto">
       <h1>用户服务协议</h1>
       <h2>一、总则条款</h2>
       <h3>1.1 协议性质与适用范围</h3>

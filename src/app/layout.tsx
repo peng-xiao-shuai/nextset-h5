@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
+import { ThemeProvider } from 'next-themes';
 export function generateViewport(): Viewport {
   return {
     colorScheme: 'dark light',
@@ -22,9 +23,16 @@ export default async function RootLayout(props: CustomReactLayout) {
   const { children } = props;
 
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
       <body className="antialiased">
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
         {process.env.NODE_ENV === 'production' && (
           <>
             <Analytics />

@@ -10,7 +10,7 @@ export function ClientOnlyLink() {
     if (isPhone) {
       window.webProxy.openMailbox();
     } else {
-      window.open(`mailto:${appInfo.email}`, '_blank');
+      window.open(`${appInfo.email.href}`, '_blank');
     }
   }
 
@@ -20,7 +20,7 @@ export function ClientOnlyLink() {
       onClick={handleClick}
       className="font-bold hover:underline"
     >
-      {appInfo.email}
+      {appInfo.email.href}
     </Link>
   );
 }
