@@ -46,9 +46,11 @@ export function QrCodeButton() {
           </div>
         </div>
         <NativeDialogFooter>
-          <NativeButton variant="outline" size="sm" onClick={() => { }}>
-            关闭
-          </NativeButton>
+          <NativeDialogTrigger asChild>
+            <NativeButton variant="outline" size="sm">
+              关闭
+            </NativeButton>
+          </NativeDialogTrigger>
         </NativeDialogFooter>
       </NativeDialogContent>
     </NativeDialog>
