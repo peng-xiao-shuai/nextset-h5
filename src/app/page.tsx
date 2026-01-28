@@ -5,6 +5,11 @@ import { KanbanBoard } from './_components/KanbanBoard';
 import { TeamSectionBlock } from './_components/TeamBlock';
 import { FAQAccordionBlock } from './_components/FAQBlock';
 import { FooterBlock } from './_components/FooterBlock';
+import { GenerateMetadata } from './meta';
+
+export const generateMetadata = () => {
+  return GenerateMetadata('/');
+};
 
 export default function Home() {
   return (

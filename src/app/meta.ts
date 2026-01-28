@@ -8,7 +8,11 @@ export interface Meta extends Metadata {
 const pathMetaData = {
   '/': {
     title: '',
-    description: `${appInfo.appName} - 您的首选应用平台`,
+    description: `${appInfo.appName} - 专业力量训练记录工具`,
+    // 添加 Google Site Verification meta 标签
+    verification: {
+      google: '8lWGx9ToZnhVOxfN7MS-yCo4vYkx6bOr5m8Lz6xedZ8'
+    }
   },
   '/privacy': {
     title: '隐私政策',
@@ -52,6 +56,7 @@ export const GenerateMetadata = (path: keyof typeof pathMetaData): Metadata => {
   const description =
     pageData.description || `${appInfo.appName} - 您的首选应用平台`;
 
+  // 构建 metadata 对象
   const metadata: Metadata = {
     title,
     description,
@@ -118,7 +123,12 @@ export const GenerateMetadata = (path: keyof typeof pathMetaData): Metadata => {
     //   initialScale: 1,
     //   maximumScale: 1,
     // },
+
+    // 合并页面自定义 verification 字段，用于 Google Site Verification 等
+    ...(pageData.verification ? { verification: pageData.verification } : {}),
   };
+
+  console.log(metadata);
 
   return metadata;
 };
