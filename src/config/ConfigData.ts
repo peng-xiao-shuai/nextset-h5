@@ -352,10 +352,16 @@ export const appInfo = {
       status: '',
     },
     {
+      icon: '💪',
+      title: '动作库',
+      desc: '补充常用功能, 优化搜索功能(支持搜索全部肌群)',
+      status: '测试中',
+    },
+    {
       icon: '📈',
       title: '记录',
-      desc: '月/年统计分析',
-      status: '延后',
+      desc: '统计分析功能',
+      status: '开发中',
     },
     {
       icon: '📒',
