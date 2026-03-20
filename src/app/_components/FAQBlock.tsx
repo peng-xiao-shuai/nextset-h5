@@ -1,12 +1,12 @@
-'use client'
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
-import { NativeButton } from "@/components/uitripled/native-button-shadcnui";
-import { appInfo } from "@/config/ConfigData";
-import { motion, AnimatePresence } from "framer-motion";
-import { HelpCircle, ChevronDown, MessageCircle } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
+'use client';
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
+import { NativeButton } from '@/components/uitripled/native-button-shadcnui';
+import { appInfo } from '@/config/ConfigData';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HelpCircle, ChevronDown, MessageCircle } from 'lucide-react';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export function FAQAccordionBlock() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -50,7 +50,7 @@ export function FAQAccordionBlock() {
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     className="flex w-full items-center justify-between p-4 text-left md:p-6"
                     whileHover={{
-                      backgroundColor: "rgba(var(--primary), 0.03)",
+                      backgroundColor: 'rgba(var(--primary), 0.03)',
                     }}
                   >
                     <span className="pr-4 text-base font-semibold md:text-lg">
@@ -58,7 +58,7 @@ export function FAQAccordionBlock() {
                     </span>
                     <motion.div
                       animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
                       className="flex-shrink-0"
                     >
                       <ChevronDown className="h-5 w-5 text-muted-foreground" />
@@ -69,9 +69,9 @@ export function FAQAccordionBlock() {
                     {isOpen && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
+                        animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
                         <div className="border-t border-border/50 p-4 md:p-6">
@@ -107,11 +107,9 @@ export function FAQAccordionBlock() {
             <p className="mb-6 text-sm text-muted-foreground md:text-base">
               我们的团队随时为您提供帮助。请与我们联系，我们会尽快回复。
             </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
+            <div className="flex justify-center gap-3 sm:flex-row">
               <NativeButton size="lg">
-                <Link href={appInfo.email.href}>
-                  联系支持
-                </Link>
+                <Link href={appInfo.email.href}>联系支持</Link>
               </NativeButton>
             </div>
           </Card>

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   DialogDescription as BaseDialogDescription,
@@ -9,12 +9,12 @@ import {
   DialogHeader,
   DialogPortal,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { motion } from "framer-motion";
-import { X } from "lucide-react";
-import * as React from "react";
+} from '@/components/ui/dialog';
+import { cn } from '@/lib/utils';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
+import { motion } from 'framer-motion';
+import { X } from 'lucide-react';
+import * as React from 'react';
 
 const NativeDialog = Dialog;
 
@@ -34,9 +34,12 @@ const NativeDialogOverlay = React.forwardRef<
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className={cn(
-        "fixed inset-0 z-50 bg-black/20 backdrop-blur-sm",
-        className
+        'fixed inset-0 z-50 bg-black/20 backdrop-blur-sm',
+        className,
       )}
+      style={{
+        backdropFilter: 'var(--tw-backdrop-blur)',
+      }}
     />
   </DialogPrimitive.Overlay>
 ));
@@ -50,13 +53,13 @@ const NativeDialogContent = React.forwardRef<
     <NativeDialogOverlay />
     <DialogPrimitive.Content ref={ref} asChild {...props}>
       <motion.div
-        initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-        exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-        transition={{ type: "spring", duration: 0.5, bounce: 0 }}
+        initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
+        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+        exit={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
+        transition={{ type: 'spring', duration: 0.5, bounce: 0 }}
         className={cn(
-          "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border border-white/10 bg-white/70 dark:bg-neutral-900/70 backdrop-blur-xl p-6 shadow-2xl sm:rounded-2xl",
-          className
+          'fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border border-white/10 bg-white/70 dark:bg-neutral-900/70 backdrop-blur-xl p-6 shadow-2xl sm:rounded-2xl',
+          className,
         )}
       >
         {children}
@@ -71,16 +74,16 @@ const NativeDialogContent = React.forwardRef<
 NativeDialogContent.displayName = DialogPrimitive.Content.displayName;
 
 const NativeDialogHeader = DialogHeader;
-NativeDialogHeader.displayName = "NativeDialogHeader";
+NativeDialogHeader.displayName = 'NativeDialogHeader';
 
 const NativeDialogFooter = DialogFooter;
-NativeDialogFooter.displayName = "NativeDialogFooter";
+NativeDialogFooter.displayName = 'NativeDialogFooter';
 
 const NativeDialogTitle = BaseDialogTitle;
-NativeDialogTitle.displayName = "NativeDialogTitle";
+NativeDialogTitle.displayName = 'NativeDialogTitle';
 
 const NativeDialogDescription = BaseDialogDescription;
-NativeDialogDescription.displayName = "NativeDialogDescription";
+NativeDialogDescription.displayName = 'NativeDialogDescription';
 
 export {
   NativeDialog,

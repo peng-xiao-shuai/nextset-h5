@@ -1,6 +1,6 @@
 'use client';
 
-import { NativeButton } from "@/components/uitripled/native-button-shadcnui";
+import { NativeButton } from '@/components/uitripled/native-button-shadcnui';
 import {
   NativeDialog,
   NativeDialogContent,
@@ -9,15 +9,18 @@ import {
   NativeDialogHeader,
   NativeDialogTitle,
   NativeDialogTrigger,
-} from "@/components/uitripled/native-dialog-shadcnui";
-import { QrCode } from "lucide-react";
-import Image from "next/image";
+} from '@/components/uitripled/native-dialog-shadcnui';
+import { QrCode } from 'lucide-react';
+import Image from 'next/image';
 
 export function QrCodeButton() {
   return (
     <NativeDialog>
       <NativeDialogTrigger asChild>
-        <NativeButton variant="outline" className="gap-2 font-bold cursor-pointer">
+        <NativeButton
+          variant="outline"
+          className="gap-2 font-bold cursor-pointer"
+        >
           二维码
           <QrCode className="size-04" />
         </NativeButton>

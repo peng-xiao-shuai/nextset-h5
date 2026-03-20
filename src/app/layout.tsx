@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import { ThemeProvider } from 'next-themes';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 export function generateViewport(): Viewport {
   return {
     colorScheme: 'dark light',
@@ -24,7 +25,7 @@ export default async function RootLayout(props: CustomReactLayout) {
 
   return (
     <html lang="zh-CN" suppressHydrationWarning>
-      <body className="antialiased">
+      <body className="antialiased" style={{ marginRight: '0 !important' }}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -36,6 +37,7 @@ export default async function RootLayout(props: CustomReactLayout) {
         {process.env.NODE_ENV === 'production' && (
           <>
             <Analytics />
+            <SpeedInsights />
           </>
         )}
       </body>
