@@ -101,7 +101,7 @@ export const appInfo = {
   appNameEn: 'NextSet',
   appDesc:
     '完全免费的力量训练记录与数据分析 App，专为健身爱好者打造。无论你是初学者还是资深玩家，都能用它轻松记录训练。',
-  version: '2.0.0',
+  version: '2.1.0',
   appLogo: '/logo.png',
   downloadUrl: 'https://url.cloud.huawei.com/xq7Yg59fGg',
   github: {

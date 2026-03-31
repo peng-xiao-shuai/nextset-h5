@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React, { Suspense } from 'react';
 import { GenerateMetadata } from '../meta';
 import { HarmonyNextCard } from './ClientHarmonyNextCard';
-import { VersionFeatures } from './NewFeature';
+import { ClientNewFeature } from './ClientNewFeature';
 
 export const generateMetadata = () => {
   return GenerateMetadata('/feature-preview');
@@ -11,7 +11,7 @@ export const generateMetadata = () => {
 
 export default async function FeaturePreviewPage() {
   return (
-    <section className="page-container px-4 py-4 pb-0! feature-preview">
+    <section className="page-container documents px-4 py-4 pb-0! feature-preview">
       <Suspense>
         <HarmonyNextCard></HarmonyNextCard>
       </Suspense>
@@ -51,35 +51,34 @@ export default async function FeaturePreviewPage() {
         </div>
       </div>
 
-      <div className="card mb-4">
-        <p className="text-lg font-bold mb-2! pl-4">
-          <span>版本新功能</span>&nbsp;
-          <span className='bg-amber-500 dark:bg-amber-600 text-amber-100 text-xs px-1.5 py-0.5 rounded-2xl'>V2.0.0</span>
-        </p>
-        <VersionFeatures />
-      </div>
+      <ClientNewFeature></ClientNewFeature>
 
-      <div className="card">
+      <div>
         <p className="text-lg font-bold mb-2! pl-4">即将上线</p>
-        <ol className="space-y-3 text-base">
+        <ol className="text-base card">
           {/* <li>【记录】AI 智能分析</li> */}
           {/* <li>【搭子、首页】长按预览</li> */}
-          {appInfo.feature.map((feature) => (
-            <li key={feature.desc} className='flex items-center p-2 bg-black/5 border-black/10 dark:bg-white/5 backdrop-blur-lg rounded-xl border dark:border-white/10 overflow-hidden'>
-              <p>
-                {feature.icon} <strong>{feature.title}</strong>
+          {appInfo.feature.map((feature, index) => (
+            <li
+              key={feature.desc}
+              className={`flex items-center justify-between py-2 border-black/5 backdrop-blur-lg ${index === 0 ? 'pt-0' : ''} ${index === appInfo.feature.length - 1 ? 'pb-0' : 'border-b-[0.8px]'} dark:border-white/5 overflow-hidden`}>
+              <div className='mb-0!'>
+                <p className='inline-block pr-2 mb-0!'>
+                  {feature.icon}
+                </p>
+                <strong>{feature.title}</strong>
                 <span>&nbsp;{feature.desc}</span>
-              </p>
+              </div>
 
-              <p className='text-nowrap'>
+              <div className=''>
                 {
                   feature.status && (
-                    <div className='flex justify-end flex-1'>
+                    <p className='flex justify-end flex-1 text-nowrap mb-0!'>
                       <span className={`text-xs rounded-md p-1 ml-2 ${feature.status === '开发中' ? 'text-amber-100 bg-amber-600' : feature.status === '即将上线' ? 'text-green-100 bg-green-600' : 'text-gray-600 bg-gray-100 border border-gray-600'}`}> {feature.status}</span>
-                    </div>
+                    </p>
                   )
                 }
-              </p>
+              </div>
             </li>
           ))}
         </ol>
