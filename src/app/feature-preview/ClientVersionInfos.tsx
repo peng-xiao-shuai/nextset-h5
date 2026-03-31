@@ -104,7 +104,7 @@ export const VersionFeatures = ({ version }: { version: keyof typeof VersionReco
           animation: scaleIn 0.4s ease-out forwards;
         }
       `}</style>
-      {VersionRecords[version] ? <div className="max-w-6xl mx-auto">
+      {VersionRecords[version] ? <div className="">
         {/* 功能列表 - 手风琴式 */}
         <div className="space-y-3">
           {VersionRecords[version].map((feature, index) => (
@@ -162,7 +162,7 @@ export const VersionFeatures = ({ version }: { version: keyof typeof VersionReco
           ))}
         </div>
       </div>
-        : <div className="max-w-6xl mx-auto">
+        : <div className="">
           <p className="text-sm opacity-60">暂无该版本新功能</p>
         </div>
       }
