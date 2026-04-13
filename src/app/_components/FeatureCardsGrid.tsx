@@ -8,7 +8,7 @@ export function FeatureCardsBlock() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-20 space-y-5 text-center">
           <h2 className="text-5xl font-bold tracking-tight md:text-6xl">
-            为什么选择我们？
+            为什么选择{appInfo.appName}？
           </h2>
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             不做复杂功能堆砌，只专注于训练记录与数据分析，让你把注意力留在训练本身。

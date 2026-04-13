@@ -303,7 +303,7 @@ export function TeamSectionBlock() {
               variant="secondary"
             >
               <Sparkles className="h-3 w-3" aria-hidden />
-              Our Dream Team
+              My Partner
             </Badge>
           </motion.div>
 
@@ -314,9 +314,9 @@ export function TeamSectionBlock() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            我们的
+            我的
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              团队
+              伙伴
             </span>
           </motion.h2>
 
@@ -326,7 +326,7 @@ export function TeamSectionBlock() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            一支由热爱健身的成员组成的团队，共同努力打造的产品。
+            开发过程中得到了一些朋友的帮助与支持，在此表示感谢。
           </motion.p>
         </motion.div>
 
@@ -350,9 +350,9 @@ export function TeamSectionBlock() {
           className="mt-16 text-center"
         >
           <Card className="inline-flex flex-col items-center gap-6 rounded-3xl border border-border/60 bg-card/80 px-10 py-8 shadow-[0_20px_70px_-30px_rgba(15,23,42,0.6)] backdrop-blur-xl">
-            <h3 className="text-2xl font-semibold">加入我们</h3>
+            <h3 className="text-2xl font-semibold">加入律己</h3>
             <p className="max-w-xl text-sm text-[var(--muted-foreground)]">
-              我们目前是用爱发电状态，如果您也想出一份力的话，请立即联系我们吧!
+              目前是用爱发电状态，如果您也想出一份力的话，请立即联系吧!
             </p>
             <NativeMagnetic>
               <Button

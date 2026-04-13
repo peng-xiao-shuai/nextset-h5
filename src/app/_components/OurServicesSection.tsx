@@ -37,7 +37,7 @@ export function OurServicesSection() {
         >
           <Badge className="mb-4">Our Services</Badge>
           <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
-            我们提供的服务
+            提供的服务
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             专注于力量训练记录与数据分析，用简单、高效的方式，帮助你持续进步。

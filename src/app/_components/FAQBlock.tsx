@@ -29,7 +29,7 @@ export function FAQAccordionBlock() {
             常见问题解答
           </h2>
           <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
-            有疑问？我们有答案。如果您找不到所需信息，请随时联系我们。
+            有疑问？我有答案。如果您找不到所需信息，请随时联系我。
           </p>
         </motion.div>
 
@@ -105,7 +105,7 @@ export function FAQAccordionBlock() {
               还有其他问题吗？
             </h3>
             <p className="mb-6 text-sm text-muted-foreground md:text-base">
-              我们的团队随时为您提供帮助。请与我们联系，我们会尽快回复。
+              随时为您提供帮助。请与我联系，我会尽快回复。
             </p>
             <div className="flex justify-center gap-3 sm:flex-row">
               <NativeButton size="lg">
