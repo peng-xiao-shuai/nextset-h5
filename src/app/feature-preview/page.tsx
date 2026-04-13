@@ -51,7 +51,9 @@ export default async function FeaturePreviewPage() {
         </div>
       </div>
 
-      <ClientNewFeature></ClientNewFeature>
+      <Suspense>
+        <ClientNewFeature></ClientNewFeature>
+      </Suspense>
 
       <div>
         <p className="text-lg font-bold mb-2! pl-4">即将上线</p>
@@ -61,28 +63,30 @@ export default async function FeaturePreviewPage() {
           {appInfo.feature.map((feature, index) => (
             <li
               key={feature.desc}
-              className={`flex items-center justify-between py-2 border-black/5 backdrop-blur-lg ${index === 0 ? 'pt-0' : ''} ${index === appInfo.feature.length - 1 ? 'pb-0' : 'border-b-[0.8px]'} dark:border-white/5 overflow-hidden`}>
-              <div className='mb-0!'>
-                <p className='inline-block pr-2 mb-0!'>
-                  {feature.icon}
-                </p>
+              className={`flex items-center justify-between py-2 border-black/5 backdrop-blur-lg ${index === 0 ? 'pt-0' : ''} ${index === appInfo.feature.length - 1 ? 'pb-0' : 'border-b-[0.8px]'} dark:border-white/5 overflow-hidden`}
+            >
+              <div className="mb-0!">
+                <p className="inline-block pr-2 mb-0!">{feature.icon}</p>
                 <strong>{feature.title}</strong>
                 <span>&nbsp;{feature.desc}</span>
               </div>
 
-              <div className=''>
-                {
-                  feature.status && (
-                    <p className='flex justify-end flex-1 text-nowrap mb-0!'>
-                      <span className={`text-xs rounded-md p-1 ml-2 ${feature.status === '开发中' ? 'text-amber-100 bg-amber-600' : feature.status === '即将上线' ? 'text-green-100 bg-green-600' : 'text-gray-600 bg-gray-100 border border-gray-600'}`}> {feature.status}</span>
-                    </p>
-                  )
-                }
+              <div className="">
+                {feature.status && (
+                  <p className="flex justify-end flex-1 text-nowrap mb-0!">
+                    <span
+                      className={`text-xs rounded-md p-1 ml-2 ${feature.status === '开发中' ? 'text-amber-100 bg-amber-600' : feature.status === '即将上线' ? 'text-green-100 bg-green-600' : 'text-gray-600 bg-gray-100 border border-gray-600'}`}
+                    >
+                      {' '}
+                      {feature.status}
+                    </span>
+                  </p>
+                )}
               </div>
             </li>
           ))}
         </ol>
       </div>
-    </section >
+    </section>
   );
 }
