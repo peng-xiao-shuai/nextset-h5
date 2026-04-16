@@ -26,10 +26,10 @@ export function FAQAccordionBlock() {
             FAQ
           </Badge>
           <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            常见问题解答
+            常见问题
           </h2>
           <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
-            有疑问？我有答案。如果您找不到所需信息，请随时联系我。
+            如果您找不到所需信息，请随时联系。
           </p>
         </motion.div>
 

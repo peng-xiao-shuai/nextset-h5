@@ -20,9 +20,9 @@ export default function Home() {
       </section>
 
       {/* Our Services */}
-      <section>
+      {/* <section>
         <OurServicesSection />
-      </section>
+      </section> */}
 
       {/* Feature Cards Grid */}
       <section>
@@ -30,9 +30,9 @@ export default function Home() {
       </section>
 
       {/* Kanban Board */}
-      <section>
+      {/* <section>
         <KanbanBoard />
-      </section>
+      </section> */}
 
       {/* Team Section Block */}
       <section>
@@ -48,6 +48,6 @@ export default function Home() {
       <section>
         <FooterBlock />
       </section>
-    </div >
+    </div>
   );
 }

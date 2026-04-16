@@ -127,7 +127,8 @@ export const appInfo = {
     {
       icon: Target,
       title: '专注训练记录',
-      description: '只为力量训练记录与数据分析而生，让进步清晰可见。',
+      description:
+        '科学管理训练节奏，让每一次训练更高效。支持与华为运动健康数据同步，让训练记录更完整、更连贯。',
     },
   ],
 
