@@ -376,6 +376,12 @@ export const appInfo = {
 
   feature: [
     {
+      icon: '⚙️',
+      title: '设置  ',
+      desc: '全局记重单位',
+      status: '即将上线',
+    },
+    {
       icon: '📱',
       title: '系统',
       desc: '碰一碰功能',
@@ -388,9 +394,9 @@ export const appInfo = {
       status: '开发中',
     },
     {
-      icon: '⚙️',
-      title: '设置  ',
-      desc: '全局记重单位',
+      icon: '📒',
+      title: '动作库  ',
+      desc: '动作完成记录补充图表视图',
       status: '开发中',
     },
     {
