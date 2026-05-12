@@ -24,7 +24,7 @@ export function KanbanBoard() {
 
   return (
     <section className="px-6 py-10 overflow-x-hidden bg-background ">
-      <div className="relative h-full min-h-screen w-full flex flex-col ">
+      <div className="relative h-full w-full my-30 flex flex-col justify-center ">
         {/* Glassmorphism background blobs */}
         <div className="absolute inset-0 -z-10 pointer-events-none">
           <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-foreground/[0.035] blur-[140px]" />
@@ -38,7 +38,7 @@ export function KanbanBoard() {
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-foreground/[0.1] via-transparent to-transparent opacity-60" />
             <div className="relative z-10">
               <h1 className="text-3xl font-semibold tracking-tight text-foreground">
-                产品路线图
+                完成进度
               </h1>
               <p className="text-foreground/60">查看版本新功能 & 新功能预告</p>
             </div>
@@ -63,7 +63,7 @@ export function KanbanBoard() {
           </div>
 
           {/* Board */}
-          <div className="h-full gap-6 overflow-x-auto md:py-10 grid md:grid-cols-4 grid-cols-1">
+          <div className="h-full gap-6 overflow-x-auto grid md:grid-cols-4 grid-cols-1">
             {appInfo.initialColumns.map((col) => (
               <BoardColumn
                 key={col.id}
