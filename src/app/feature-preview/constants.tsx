@@ -1,5 +1,5 @@
 import { appInfo } from "@/config/ConfigData"
-import { Calculator, ChartColumnIncreasing, ClipboardMinus, CloudAlert, Dumbbell, HeartHandshake, LayoutGrid } from 'lucide-react';
+import { Calculator, SettingsIcon, UserCircle2Icon, ArrowUpRightFromCircleIcon, ClipboardMinus, CloudAlert, Dumbbell, HeartHandshake, LayoutGrid, ChartColumnIncreasing } from 'lucide-react';
 
 export const VersionRecords = {
   '2.0.0': [
@@ -110,7 +110,7 @@ export const VersionRecords = {
       ]
     }
   ],
-  [appInfo.version]: [
+  '2.1.0': [
     {
       icon: <ChartColumnIncreasing />,
       title: "统计分析功能",
@@ -152,11 +152,11 @@ export const VersionRecords = {
     {
       icon: <Dumbbell />,
       title: "训练中",
-      description: "直观回顾每个动作的训练重量、次数与进步轨迹，清晰掌握长期训练变化。",
+      description: "训练中新增主观整体强度（sRPE）",
       color: "from-blue-500 to-cyan-500",
       details: [
         {
-          title: "训练中新增主观整体强度（sRPE）",
+          title: "",
           description: "通过从点击右上角 <b>整体强度</b> 主动设置整体训练强度，默认使用算法计算整体强度评分。（整体强度评分越高，训练负荷越高）",
           image: ["/update-function/2.1/f8d26e59-7996-4313-b3df-589ab3e29fd6.png"]
         },
@@ -165,21 +165,102 @@ export const VersionRecords = {
     {
       icon: <LayoutGrid />,
       title: "动作库",
-      description: "动作库中补充常用肌群，方便用户快速选择动作同时支持搜索全部动作。补充动作所训练到的肌群视图。",
+      description: "动作库中补充常用，方便用户快速选择动作同时支持搜索全部动作。补充动作所训练到的肌群视图。",
       color: "from-yellow-500 to-orange-500",
       details: [
         {
-          title: "常用肌群分类展示",
-          description: "在【动作库】中支持常用肌群分类展示，方便用户快速选择动作。",
+          title: "常用分类展示",
+          description: "在【动作库】中支持常用分类展示，方便用户快速选择动作。",
           image: [
             "/update-function/2.1/6da6e17d41bcea9e80f046cc7bcc93e3.jpg",
           ]
         },
         {
-          title: "动作库支持搜索全部肌群",
-          description: "在【动作库】中支持搜索全部肌群，方便用户快速选择动作。",
+          title: "动作库支持搜索全部肌群中动作",
+          description: "在【动作库】中支持搜索全部肌群中动作，方便用户快速选择动作。",
           image: [
             "/update-function/2.1/bb1ab8168eb56f709767173a801ff2a6.jpg",
+          ]
+        },
+      ]
+    },
+  ],
+  '2.2.0': [
+    {
+      icon: <SettingsIcon />,
+      title: "全局记重单位",
+      description: "支持全局设置记重单位，支持磅（lbs）和千克（kg），默认使用千克（kg）。",
+      color: "from-red-500 to-pink-500",
+      details: [
+        {
+          title: "",
+          description: "切换记重单位后，训练记录中的重量会自动转换为新的单位.",
+          image: ["/update-function/2.2/38c224f597b8a2859eaf912ab4a06b3d.jpg", "/update-function/2.2/1b7faa50e3274c24b34adcee740fcdf8.jpg"]
+        },
+        {
+          title: "创建训练",
+          description: "创建训练记录时，选择动作后自动将动作重量转换为新的单位。",
+          image: ["/update-function/2.2/5f6bc5bd39d7ee22215bdc9c9ced357d.jpg"]
+        },
+        {
+          title: "历史数据",
+          description: "历史已完成的训练仅统计受影响，动作统计、组数据不受影响（动作设置的单位 > 全局计重单位）。",
+          image: ["/update-function/2.2/b75db733470b149cf217efad67361f35.jpg"]
+        },
+      ]
+    },
+    {
+      icon: <UserCircle2Icon />,
+      title: "个人资料",
+      description: "补充支持设置体脂，补充体脂体重历史曲线展示。",
+      color: "from-blue-500 to-cyan-500",
+      details: [
+        {
+          title: "体脂体重历史曲线",
+          description: "选择近7条、近15条、近30条切换，展示体脂体重历史曲线（历史曲线中不包含当前的体脂体重数据）。",
+          image: ["/update-function/2.2/4b094e00515b02074e5f5b7fa6fae30c.jpg"]
+        },
+      ]
+    },
+  ],
+  [appInfo.version]: [
+    {
+      icon: <ArrowUpRightFromCircleIcon />,
+      title: "统计分析分享功能",
+      description: "统计分析页面右上角新增分享功能，支持系统分享当前统计页面截图",
+      color: "from-red-500 to-pink-500",
+      details: [
+        {
+          title: "",
+          description: "",
+          image: ["/update-function/2.3/ffb9856b20e15839277a9de2f4db66a2.jpg"]
+        },
+      ]
+    },
+    {
+      icon: <Dumbbell />,
+      title: "训练中",
+      description: "训练中支持设置总消耗热量。",
+      color: "from-blue-500 to-cyan-500",
+      details: [
+        {
+          title: "训练中新增总消耗热量更改",
+          description: "通过从点击右上角 <b>🔥</b> 主动设置总消耗热量，默认使用算法计算总消耗热量。",
+          image: ["/update-function/2.3/ab79e6a5-b5ee-404c-9da2-a3696e6b96a7.png"]
+        },
+      ]
+    },
+    {
+      icon: <LayoutGrid />,
+      title: "动作详情",
+      description: "动作详情页面支持查看动作训练肌群、器械类型。支持动作趋势数据图表（包含容量、次数、RPE、休息时长维度统计）。",
+      color: "from-yellow-500 to-orange-500",
+      details: [
+        {
+          title: "",
+          description: "",
+          image: [
+            "/update-function/2.3/b5ed0d0cc904dd307f93d86da41a2e12.jpg",
           ]
         },
       ]
