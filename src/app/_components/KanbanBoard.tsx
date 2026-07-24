@@ -6,10 +6,22 @@ import { Input } from '@/components/ui/input';
 import { NativeButton } from '@/components/uitripled/native-button-shadcnui';
 import { appInfo, Column, Task } from '@/config/ConfigData';
 import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
 import { Search, Filter, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
+
+const PRIORITY_COLORS = {
+  low: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20',
+  medium:
+    'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
+  high: 'bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20',
+} as const;
+
+const PRIORITY_TEXTS = {
+  low: '低',
+  medium: '中等',
+  high: '高',
+} as const;
 
 export function KanbanBoard() {
   const [tasks] = useState<Task[]>(appInfo.initialTasks);
@@ -17,23 +29,35 @@ export function KanbanBoard() {
 
   const filteredTasks = useMemo(() => {
     if (!searchQuery) return tasks;
-    return tasks.filter((task) =>
-      task.content.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
+    const query = searchQuery.toLowerCase();
+    return tasks.filter((task) => task.content.toLowerCase().includes(query));
   }, [tasks, searchQuery]);
+
+  const tasksByColumn = useMemo(() => {
+    const grouped: Record<string, Task[]> = {};
+    for (const col of appInfo.initialColumns) {
+      grouped[col.id] = [];
+    }
+    for (const task of filteredTasks) {
+      const bucket = grouped[task.columnId];
+      if (bucket) {
+        bucket.push(task);
+      }
+    }
+    return grouped;
+  }, [filteredTasks]);
 
   return (
     <section className="px-6 py-10 overflow-x-hidden bg-background ">
       <div className="relative h-full w-full my-30 flex flex-col justify-center ">
-        {/* Glassmorphism background blobs */}
+        {/* Soft background accents — limited blur for cheaper compositing */}
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-foreground/[0.035] blur-[140px]" />
-          <div className="absolute bottom-0 right-0 h-[360px] w-[360px] rounded-full bg-foreground/[0.025] blur-[120px]" />
-          <div className="absolute top-1/2 left-1/4 h-[400px] w-[400px] rounded-full bg-primary/[0.02] blur-[150px]" />
+          <div className="absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-foreground/[0.035] blur-[90px]" />
+          <div className="absolute bottom-0 right-0 h-[280px] w-[280px] rounded-full bg-foreground/[0.025] blur-[80px]" />
         </div>
         <div className="flex flex-col gap-6 items-center *:w-full">
           {/* Header */}
-          <div className="relative md:min-w-7xl flex flex-col gap-4 rounded-2xl border border-border/40 bg-background/60 p-6 backdrop-blur-xl md:flex-row md:items-center md:justify-between">
+          <div className="relative md:min-w-7xl flex flex-col gap-4 rounded-2xl border border-border/40 bg-background/80 p-6 md:flex-row md:items-center md:justify-between">
             {/* Gradient overlay */}
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-foreground/[0.1] via-transparent to-transparent opacity-60" />
             <div className="relative z-10">
@@ -47,7 +71,7 @@ export function KanbanBoard() {
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-foreground/40" />
                 <Input
                   placeholder="搜索任务..."
-                  className="w-[200px] pl-9 bg-background/60 border-border/50 backdrop-blur-md focus:bg-background/80 focus:border-border/70 transition-all"
+                  className="w-[200px] pl-9 bg-background/80 border-border/50 focus:bg-background focus:border-border/70 transition-[background-color,border-color]"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
@@ -55,7 +79,7 @@ export function KanbanBoard() {
               <Button
                 variant="outline"
                 size="icon"
-                className="bg-background/60 border-border/50 backdrop-blur-md hover:bg-background/80"
+                className="bg-background/80 border-border/50 hover:bg-background"
               >
                 <Filter className="h-4 w-4 text-foreground/70" />
               </Button>
@@ -68,7 +92,7 @@ export function KanbanBoard() {
               <BoardColumn
                 key={col.id}
                 column={col}
-                tasks={filteredTasks.filter((task) => task.columnId === col.id)}
+                tasks={tasksByColumn[col.id] ?? []}
               />
             ))}
           </div>
@@ -86,30 +110,18 @@ interface BoardColumnProps {
 
 function BoardColumn({ column, tasks }: BoardColumnProps) {
   return (
-    <div
-      className={cn(
-        'group/column relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/40 bg-background/50 backdrop-blur-xl shadow-lg',
-        'shadow-xl cursor-grabbing bg-background/70',
-      )}
-    >
+    <div className="group/column relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/40 bg-background/70 backdrop-blur-md shadow-md">
       {/* Gradient overlay for column */}
       <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] dark:from-foreground/[0.05] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/column:opacity-100" />
 
       {/* Column Header */}
-      <div className="relative z-10 flex items-center justify-between border-b border-border/30 bg-background/30 p-4 backdrop-blur-sm cursor-grab active:cursor-grabbing">
+      <div className="relative z-10 flex items-center justify-between border-b border-border/30 bg-background/40 p-4 cursor-grab active:cursor-grabbing">
         <div className="flex items-center gap-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/20 text-xs font-bold text-primary shadow-sm shadow-primary/20 backdrop-blur-sm">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/20 text-xs font-bold text-primary shadow-sm shadow-primary/20">
             {tasks.length}
           </div>
           <h3 className="font-semibold text-foreground">{column.title}</h3>
         </div>
-        {/* <Button
-          variant="ghost"
-          size="icon"
-          className="h-8 w-8 text-foreground/40 hover:text-foreground hover:bg-background/50"
-        >
-          <MoreHorizontal className="h-4 w-4" />
-        </Button> */}
       </div>
 
       {/* Column Content */}
@@ -128,26 +140,8 @@ interface TaskCardProps {
 }
 
 function TaskCard({ task }: TaskCardProps) {
-  const priorityColors = {
-    low: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20',
-    medium:
-      'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
-    high: 'bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20',
-  };
-
-  const priorityTexts = {
-    low: '低',
-    medium: '中等',
-    high: '高',
-  };
-
   return (
-    <div
-      className={cn(
-        'group relative flex cursor-grab flex-col gap-3 overflow-hidden rounded-xl border border-border/40 bg-background/70 p-4 shadow-lg backdrop-blur-xl transition-all hover:border-border/60 hover:shadow-xl hover:-translate-y-1 active:cursor-grabbing',
-        'shadow-xl cursor-grabbing opacity-100 bg-background/90 backdrop-blur-xl z-50',
-      )}
-    >
+    <div className="group relative flex cursor-grab flex-col gap-3 overflow-hidden rounded-xl border border-border/40 bg-background/90 p-4 shadow-sm transition-[box-shadow,border-color,transform] hover:border-border/60 hover:shadow-md hover:-translate-y-1 active:cursor-grabbing">
       {/* Gradient overlay for card */}
       <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] dark:from-foreground/[0.05] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -157,29 +151,22 @@ function TaskCard({ task }: TaskCardProps) {
           <Badge
             variant="outline"
             className={cn(
-              'border px-1.5 py-0.5 text-[10px] uppercase tracking-wider backdrop-blur-sm',
-              priorityColors[task.priority],
+              'border px-1.5 py-0.5 text-[10px] uppercase tracking-wider',
+              PRIORITY_COLORS[task.priority],
             )}
           >
-            {priorityTexts[task.priority]}
+            {PRIORITY_TEXTS[task.priority]}
           </Badge>
           {task.tags.map((tag) => (
             <Badge
               key={tag}
               variant="secondary"
-              className="bg-secondary/50 text-secondary-foreground/80 px-1.5 py-0.5 text-[10px] backdrop-blur-sm"
+              className="bg-secondary/50 text-secondary-foreground/80 px-1.5 py-0.5 text-[10px]"
             >
               {tag}
             </Badge>
           ))}
         </div>
-        {/* <Button
-          variant="ghost"
-          size="icon"
-          className="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100"
-        >
-          <MoreHorizontal className="h-3 w-3" />
-        </Button> */}
       </div>
 
       {/* Content */}
@@ -188,7 +175,7 @@ function TaskCard({ task }: TaskCardProps) {
       </p>
 
       {/* Footer */}
-      {task.dueDate || task.link ? (
+      {(task.dueDate || task.link) && (
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex items-center justify-between w-full gap-3 text-xs text-foreground/50">
             {task.dueDate && (
@@ -210,35 +197,14 @@ function TaskCard({ task }: TaskCardProps) {
               >
                 <Link href={task.link}>
                   了解更多
-                  <motion.span
-                    className="ml-1 inline-block"
-                    whileHover={{ x: 5 }}
-                  >
+                  <span className="ml-1 inline-block transition-transform group-hover/btn:translate-x-1">
                     →
-                  </motion.span>
+                  </span>
                 </Link>
               </NativeButton>
             )}
-            {/* {(task.comments > 0 || task.attachments > 0) && (
-            <div className="flex items-center gap-2">
-              {task.comments > 0 && (
-                <div className="flex items-center gap-1">
-                  <MessageSquare className="h-3 w-3" />
-                  <span>{task.comments}</span>
-                </div>
-              )}
-              {task.attachments > 0 && (
-                <div className="flex items-center gap-1">
-                  <Paperclip className="h-3 w-3" />
-                  <span>{task.attachments}</span>
-                </div>
-              )}
-            </div>
-          )} */}
           </div>
         </div>
-      ) : (
-        <></>
       )}
     </div>
   );
