@@ -1,5 +1,5 @@
 import { appInfo } from "@/config/ConfigData"
-import { Calculator, SettingsIcon, UserCircle2Icon, ArrowUpRightFromCircleIcon, ClipboardMinus, CloudAlert, Dumbbell, HeartHandshake, LayoutGrid, ChartColumnIncreasing } from 'lucide-react';
+import { Calculator, SettingsIcon, UserCircle2Icon, ArrowUpRightFromCircleIcon, ClipboardMinus, CloudAlert, Dumbbell, HeartHandshake, LayoutGrid, ChartColumnIncreasing, User } from 'lucide-react';
 
 export const VersionRecords = {
   '2.0.0': [
@@ -223,7 +223,7 @@ export const VersionRecords = {
       ]
     },
   ],
-  [appInfo.version]: [
+  '2.3.0': [
     {
       icon: <ArrowUpRightFromCircleIcon />,
       title: "统计分析分享功能",
@@ -262,6 +262,34 @@ export const VersionRecords = {
           image: [
             "/update-function/2.3/b5ed0d0cc904dd307f93d86da41a2e12.jpg",
           ]
+        },
+      ]
+    },
+  ],
+  [appInfo.version]: [
+    {
+      icon: <Dumbbell />,
+      title: "训练中",
+      description: "新增实况窗功能，支持在训练中查看实况窗，支持查看训练数据、训练进度、训练状态等。",
+      color: "from-red-500 to-pink-500",
+      details: [
+        {
+          title: "",
+          description: "",
+          image: ["/update-function/2.3/1/20c27dde4cb82f06d1b8e88012c3ecb8.png"]
+        },
+      ]
+    },
+    {
+      icon: <User />,
+      title: "个人资料",
+      description: "补充BMI和FFMI计算。",
+      color: "from-blue-500 to-cyan-500",
+      details: [
+        {
+          title: "",
+          description: "",
+          image: ["/update-function/2.3/1/b3e62dc0de1aa478fb12d686f606d0fd.jpg"]
         },
       ]
     },
